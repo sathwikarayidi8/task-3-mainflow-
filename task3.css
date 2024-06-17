@@ -1,0 +1,122 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-image: url("https://gifdb.com/images/high/lavender-cartoon-clouds-background-u7w65rqbor29e7wi.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right top;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #A020F0;
+    text-align: center;
+    font-size: 36px; 
+    font-family: serif;
+    margin: 20px 0;
+}
+
+h2 {
+    color: #280317;
+    text-align: center;
+    font-size: 30px;
+    margin: 6px 0;
+    font-family: serif;
+}
+
+.header {
+    background-image: url('https://img.freepik.com/premium-photo/studio-background-concept-abstract-empty-light-gradient-purple-studio-room-background-product_1258-67812.jpg');
+    border: 3px solid #F8F9D7;
+    color: white;
+    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header a {
+    color: #A020F0;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 25px;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.header a.active {
+    background-color: hotpink;
+    color: white;
+}
+.error {
+    color: red;
+    font-size: 14px;
+    text-align: left;
+    display: block;
+}
+form {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid #A020F0;
+    border-radius: 9px;
+    max-width: 250px;
+    margin: 10px; 
+}
+form div {
+    margin-bottom: 11px;
+}
+label {
+    display: block;
+    font-size: 13px;
+    color: #280317;
+    margin-bottom: 5px;
+}
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 200px;
+    padding: 2px;
+    font-size: 14px;
+    border: solid #A020F0;
+    border-radius: 5px;
+}
+button[type="submit"] {
+    background-color: #A020F0;
+    color: white;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button[type="submit"]:hover {
+    background-color: hotpink;
+}
+#formResponse {
+    margin-top: 20px;
+    font-size: 16px;
+    color: green;
+}
+.footer {
+    background-color: #1E0342;
+    color: white;
+    text-align: center;
+    padding: 9px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+@media (max-width: 768px) {
+    .header-nav {
+        flex-direction: column;
+    }
+}
