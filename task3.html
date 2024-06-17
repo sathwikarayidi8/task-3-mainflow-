@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAVENDER HAAZEE</title>
+    <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+    <div class="header">
+        <h1>LAVENDER HAAZEE</h1>
+        <div class="header-nav">
+            <a class="active" href="home.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="items.html">Items</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+    <div style="text-align:center; padding:20px">
+        <h2>Handcrafted Jewellery<br/>
+        Every piece of jewelry tells a story</h2>
+        <form id="contactForm" method="post" action="/submit">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error" id="nameError"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="formResponse"></div>
+    </div>
+    <footer class="footer">
+        <p>&copy; All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.errors) {
+                    document.getElementById('nameError').textContent = data.errors.find(e => e.param === 'name')?.msg || '';
+                    document.getElementById('emailError').textContent = data.errors.find(e => e.param === 'email')?.msg || '';
+                    document.getElementById('messageError').textContent = data.errors.find(e => e.param === 'message')?.msg || '';
+                } else {
+                    document.getElementById('formResponse').textContent = data.message;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+</html>
